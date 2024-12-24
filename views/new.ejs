@@ -1,0 +1,15 @@
+<%- include("particles/head.ejs") %>
+<body>
+    <%- include("particles/text.ejs") %>
+    <%- include("particles/footer.ejs") %>
+    <br><br><br>
+    <center>
+        <form action="/new" method="post">
+            <input style="background-color: rgb(34, 34, 34);color:white;width:80%;font-size:40px;" name="chat_name" type="text" placeholder="Insert your chat name"/>
+            <br><br>
+            <button>Create a new chat!</button>
+            <p><%= backend %></p>
+        </form>
+    </center>
+</body>
+</html>

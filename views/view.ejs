@@ -1,0 +1,27 @@
+<%- include("particles/head.ejs") %>
+<script>
+    let socket = new WebSocket("ws://<%= ip %>:8080");
+    socket.onmessage = ({data}) => {
+        let parsed = JSON.parse(data);
+        parsed = parsed.reverse();
+        document.getElementById('msgs').innerHTML = "";
+        parsed.forEach((element) => {
+            document.getElementById('msgs').innerHTML += `<p class="chat">${element.msg}</p>`;
+        });
+    };
+
+</script>
+<body>
+    <%- include("particles/text.ejs") %>
+    <%- include("particles/footer.ejs") %>
+    <center>
+        <form action="/chat/<%= name %>" method="post">
+            <input name="msg" class="chat" type="text" placeholder="Type your message"/>
+            <button style="width:fit-content;">Send!</button>
+        </form>
+        <div id="msgs">
+
+        </div>
+    </center>
+</body>
+</html>

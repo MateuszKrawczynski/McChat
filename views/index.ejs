@@ -1,0 +1,13 @@
+<%- include("particles/head.ejs") %>
+<body>
+    <%- include("particles/text.ejs") %>
+    <%- include("particles/footer.ejs") %>
+    <center>
+        <a href="/new"><button>Add a new chat</button></a>
+        <br><br>
+        <% chats.forEach((element) => { %>
+            <a href="/chat/<%= element %>" ><button><%= element %></button></a>
+        <% }); %>
+    </center>
+</body>
+</html>
